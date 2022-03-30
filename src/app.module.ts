@@ -12,7 +12,7 @@ import { join } from 'path';
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd() + 'src/schema.gql'),
-      playground: process.env.NODE_ENV === 'production' ? false : true,
+      playground: true,
       subscriptions: {
         'subscriptions-transport-ws': true,
       },
@@ -23,10 +23,10 @@ import { join } from 'path';
       host: 'localhost',
       port: 5432,
       username: 'postgres',
-      password: '1234',
-      database: 'family-chat-db',
+      password: 'postgres',
+      database: 'postgres',
       logging: true,
-      synchronize: process.env.NODE_ENV === 'production' ? false : true,
+      synchronize: true,
       entities: ['dist/**/*.entity.{ts,js}'],
     }),
     MessagesModule,
